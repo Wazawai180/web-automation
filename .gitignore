@@ -1,0 +1,22 @@
+# Python compiled files
+*.pyc
+__pycache__/
+
+# Virtual environment
+venv/
+env/
+.venv/
+.env/
+
+# Editor and IDE files
+.idea/
+.vscode/
+
+# Temporary and log files
+*.log
+*.tmp
+
+# Executables 
+dist/
+build/
+*.egg-info/

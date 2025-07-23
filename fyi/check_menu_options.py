@@ -7,9 +7,12 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 
 def check_menu_options():
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    options = Options()
+    options.add_argument("--headless")  # Run in headless mode for testing
+    driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
     driver.get("https://fyi.ai/")
     #Click hamburger menu to expand menu options
     hamburger_menu = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, "//*[@class='menu-collapse']")))

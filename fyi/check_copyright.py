@@ -6,8 +6,12 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 
 def check_copyright_text():
+    options = Options()
+    options.add_argument("--headless")  # Run in headless mode for testing
+    driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     driver.get("https://fyi.ai/")
     time.sleep(5)
